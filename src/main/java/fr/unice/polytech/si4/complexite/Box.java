@@ -1,16 +1,22 @@
 package fr.unice.polytech.si4.complexite;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Hugo on 09/12/2014.
  */
 public class Box {
     private int[][] matrix;
+    private List<Integer> ids;
 
     Box(int width, int height){
         matrix = new int[width][height];
+        ids = new ArrayList<Integer>();
     }
 
     public void putRectangle(Rectangle r, int x, int y) throws ArrayIndexOutOfBoundsException{
+        ids.add(r.getId());
         for(int i=x; i<x+r.getWidth(); i++){
             for(int j=y; j<y+r.getHeight(); j++){
                 matrix[i][j] = r.getId();
@@ -20,6 +26,10 @@ public class Box {
 
     public int getId(int x, int y){
         return matrix[x][y];
+    }
+
+    public List<Integer> getIds(){
+        return ids;
     }
 
     public int getWidth(){
