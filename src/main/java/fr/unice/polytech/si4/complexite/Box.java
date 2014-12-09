@@ -4,44 +4,59 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Hugo on 09/12/2014.
+ * Designs the boxes
  */
 public class Box {
     private int[][] matrix;
     private List<Integer> ids;
 
-    Box(int width, int height){
+    Box(int width, int height) {
         matrix = new int[width][height];
         ids = new ArrayList<Integer>();
     }
 
-    public void putRectangle(Rectangle r, int x, int y) throws ArrayIndexOutOfBoundsException{
+    private boolean canPutRectangle(Rectangle r, int x, int y) {
+        try {
+            for (int i = x; i < x + r.getWidth(); i++) {
+                for (int j = y; j < y + r.getHeight(); j++) {
+                    if (matrix[i][j] != 0) return false;
+                }
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean putRectangle(Rectangle r, int x, int y) {
+        if(!canPutRectangle(r, x, y))return false;
         ids.add(r.getId());
-        for(int i=x; i<x+r.getWidth(); i++){
-            for(int j=y; j<y+r.getHeight(); j++){
+        for (int i = x; i < x + r.getWidth(); i++) {
+            for (int j = y; j < y + r.getHeight(); j++) {
                 matrix[i][j] = r.getId();
             }
         }
+        return true;
     }
 
-    public int getId(int x, int y){
+    public int getId(int x, int y) {
         return matrix[x][y];
     }
 
-    public List<Integer> getIds(){
+    public List<Integer> getIds() {
         return ids;
     }
 
-    public int getWidth(){
+    public int getWidth() {
         return matrix.length;
     }
 
-    public int getHeight(){
-        if(getWidth() == 0) return 0;
+    public int getHeight() {
+        if (getWidth() == 0) return 0;
         return matrix[0].length;
     }
 
-    public String toString(){
+    public String toString() {
         String res = "";
         for (int i = 0; i < 2 * getHeight() + 1; i++) {
             if (i % 2 == 0) {
@@ -57,7 +72,7 @@ public class Box {
                     if (j % 2 == 0) {
                         res = res.concat("|");
                     } else {
-                        res = res.concat(" "+matrix[(j - 1) / 2][(i - 1) / 2])+" ";
+                        res = res.concat(" " + matrix[(j - 1) / 2][(i - 1) / 2]) + " ";
                     }
                 }
             }

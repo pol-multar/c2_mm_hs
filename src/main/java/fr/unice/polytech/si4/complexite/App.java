@@ -1,19 +1,34 @@
 package fr.unice.polytech.si4.complexite;
-
+import javax.swing.*;
+import java.util.List;
 /**
- * Hello world!
- *
+ * The main of the program
  */
 public class App 
 {
     public static void main( String[] args )
     {
-        Box b = new Box(3,3);
-        Rectangle r1 = new Rectangle(2,1);
+        // Choose the file
+        JFileChooser fc = new JFileChooser();
+        fc.showOpenDialog(new JFrame());
+        if(fc.getSelectedFile() == null) return;
+        String filename = fc.getSelectedFile().getAbsolutePath();
+
+        // Read the file
+        BoxReader br = new BoxReader(filename);
+        Box box =br.getBox();
+        List<Rectangle> rectangleList = br.getRectangleList();
+
+        // Process
+        BoxEngine be = new BoxEngine(box, rectangleList);
+        List<Box> boxList = null;
         try {
-            b.putRectangle(r1, 1, 2);
-        }catch(ArrayIndexOutOfBoundsException e){}
-        System.out.println(r1);
-        System.out.println(b);
+            boxList = be.fastProcess();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        for(Box b : boxList){
+            System.out.println(b);
+        }
     }
 }
