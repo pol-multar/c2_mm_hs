@@ -18,6 +18,10 @@ public class Box {
         }
     }
 
+    public int getId(int x, int y){
+        return matrix[x][y];
+    }
+
     public int getWidth(){
         return matrix.length;
     }
