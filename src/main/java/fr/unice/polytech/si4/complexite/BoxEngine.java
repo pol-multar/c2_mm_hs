@@ -32,9 +32,9 @@ public class BoxEngine {
             b = new Box(box.getWidth(), box.getHeight());
             for (int i = 0; i < b.getHeight(); i++) {
                 for (int j = 0; j < b.getWidth(); j++) {
-                    if (b.getId(i, j) != 0) continue;
+                    if (b.getId(j, i) != 0) continue;
                     for (Rectangle r : rectangleList) {
-                        if (!b.putRectangle(r, i, j)) continue;
+                        if (!b.putRectangle(r, j, i)) continue;
                         rectangleList.remove(r);
                         break;
                     }
