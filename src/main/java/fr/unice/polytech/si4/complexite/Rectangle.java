@@ -1,7 +1,7 @@
 package fr.unice.polytech.si4.complexite;
 
 /**
- * Created by Hugo on 09/12/2014.
+ * Designs the rectangles
  */
 public class Rectangle {
     private static int ID = 0;
