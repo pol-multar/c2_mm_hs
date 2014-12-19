@@ -9,15 +9,21 @@ import java.awt.*;
  */
 public class BoxView extends JPanel{
 
+    public static final int UNITE=10;
+
     Box box;
 
     public BoxView(Box b){
-
         box=b;
+        setBorder(BorderFactory.createLineBorder(Color.BLACK));
+    }
 
+    public Dimension getPreferredSize(){
+        return new Dimension(450,400);
     }
 
     public void paintComponent(Graphics g){
-        g.drawRect(box.getWidth(), box.getHeight(), 75, 75);
+        g.drawRect(10, 20, UNITE*box.getWidth(), UNITE*box.getHeight());
+
     }
 }

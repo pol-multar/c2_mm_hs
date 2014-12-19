@@ -11,12 +11,13 @@ import java.util.Map;
  * @author mmultari
  * @version 09/12/14.
  */
-public class BoxViewer extends JFrame {
+public class BoxViewerDeprec {
 
-    //The top-left corner of the new location is specified by the x and y parameters in the coordinate space of this component's parent.
-    private static final int X_LOCATION=20;
-
-    private static final int Y_LOCATION=50;
+    // Constants representing configuration information for the simulation.
+    // The default width for the grid.
+    private static final int DEFAULT_WIDTH = 120;
+    // The default depth of the grid.
+    private static final int DEFAULT_DEPTH = 80;
 
     //400 pixels
     private static final int X_SIZE=800;
@@ -35,36 +36,45 @@ public class BoxViewer extends JFrame {
     private final String BOX_PREFIX="Boite ";
     private JLabel boxLabel;
 
-
+    // List of boxes in the field.
     private List<Box> boxes;
+
+    // The current state of the field.
+    private Field field;
+
+    //The color - id associations
     private Map<Integer, Color> colors;
 
 
-    public BoxViewer(List<Box> l) {
+    public BoxViewerDeprec(List<Box> l) {
         super();
+/*
+        if (width <= 0 || depth <= 0) {
+            System.out.println("The dimensions must be greater than zero.");
+            System.out.println("Using default values.");
+            depth = DEFAULT_DEPTH;
+            width = DEFAULT_WIDTH;
+        }
+        */
+
+        int depth = DEFAULT_DEPTH;
+        int width = DEFAULT_WIDTH;
+
         boxes = new ArrayList<>(l);
         colors = new HashMap<>();
 
         initColors();
 
-        setTitle("Projet 2 Complexite : Affichage des boxes");
-        setPreferredSize(new Dimension(X_SIZE, Y_SIZE));
+        //setTitle("Projet 2 Complexite : Affichage des boxes");
+        //setPreferredSize(new Dimension(X_SIZE, Y_SIZE));
 
-        setLocationRelativeTo(null);
-        //boxLabel=new JLabel(BOX_PREFIX,JLabel.CENTER);
+        //setLocationRelativeTo(null);
 
-        //setLocation(X_LOCATION,Y_LOCATION);
 
-        //Container contents = getContentPane();
-
-        //contents.add(boxLabel,BorderLayout.SOUTH);
-        //fixer la taille des cases a 10 pixels
-        //mettre les deux scrolls bars
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setContentPane(new BoxView(boxes.get(0)));
-        pack();
-        setVisible(true);
+        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //setContentPane(new BoxView(boxes.get(0)));
+        //pack();
+        //setVisible(true);
 
     }
 
