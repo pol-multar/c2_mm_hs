@@ -16,6 +16,7 @@ public class BoxViewerMain {
             b.putRectangle(r1, 1, 2);
         }catch(ArrayIndexOutOfBoundsException e){}
         l.add(b);
-        BoxViewerDeprec viewer= new BoxViewerDeprec(l);
+        //BoxViewerDeprec viewer= new BoxViewerDeprec(l);
+        Simulator simu=new Simulator(l);
     }
 }

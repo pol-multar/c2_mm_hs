@@ -72,7 +72,7 @@ public class BoxViewerDeprec {
 
 
         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //setContentPane(new BoxView(boxes.get(0)));
+        //setContentPane(new BoxViewDeprec(boxes.get(0)));
         //pack();
         //setVisible(true);
 
