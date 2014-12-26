@@ -17,8 +17,11 @@ public class Simulator {
     // The default depth of the grid.
     private static final int DEFAULT_DEPTH = 80;
 
-    // List of boxes in the field.
+    // The list of box created.
     private List<Box> boxes;
+
+    //List of ids in the field
+    private List<Integer> ids;
 
     // The current state of the field.
     private Field field;
@@ -52,19 +55,34 @@ public class Simulator {
         }
 
         boxes = new ArrayList<>(l);
+        ids = new ArrayList<>();
         field = new Field(depth, width);
         colors = new HashMap<>();
 
+        //Je remplis la table d'assoc
         initColors();
 
+        //Je crée ma vue
         view = new BoxView(colors,depth,width);
 
-launchView();
+        //Je l'affiche
+        launchView();
         
     }
 
     private void launchView() {
+        populate();
+        updateViews();
+
     }
+
+    /**
+     * Update all existing views.
+     */
+    private void updateViews() {
+        view.showStatus(field);
+    }
+
 
 
     private void initColors() {
@@ -79,5 +97,21 @@ launchView();
             colors.put(ids.get(i), COLORTAB[i % COLORTAB.length]);
         }
 
+    }
+
+    //TODO correct this
+    private void populate(){
+        field.clear();
+
+        Box b=boxes.get(0);
+
+        for(int row=0; row<b.getHeight();row++){
+            for(int col=0;col<b.getWidth();col++){
+                //Location location=new Location(row,col);
+                //Box b1= new Box(b.getWidth(),b.getHeight(),field,location);
+                //boxesToV.add(b1);
+                this.ids.add(b.getId(row,col));
+            }
+        }
     }
 }
