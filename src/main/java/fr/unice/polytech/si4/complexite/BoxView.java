@@ -52,9 +52,9 @@ public class BoxView extends JFrame {
 
         for (int row = 0; row < field.getDepth(); row++) {
             for (int col = 0; col < field.getWidth(); col++) {
-                Integer id = (Integer) field.getObjectAt(row, col);
+                Id id = (Id) field.getObjectAt(row, col);
                 if (id != null) {
-                    fieldView.drawMark(col, row, getColor(id));
+                    fieldView.drawMark(col, row, getColor(id.getValue()));
                 } else {
                     fieldView.drawMark(col, row, Simulator.EMPTY_COLOR);
                 }

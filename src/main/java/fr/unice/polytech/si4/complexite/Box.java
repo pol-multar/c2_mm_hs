@@ -10,23 +10,10 @@ public class Box {
     private int[][] matrix;
     private List<Integer> ids;
 
-    //For IHM
-    // The box's field
-    private Field field;
-
-    //The box's location in the field
-    private Location location;
-
 
     Box(int width, int height) {
         matrix = new int[width][height];
         ids = new ArrayList<Integer>();
-    }
-
-    Box(int width, int height, Field aField, Location aLocation){
-        this(width,height);
-        field=aField;
-        setLocation(aLocation);
     }
 
     private boolean canPutRectangle(Rectangle r, int x, int y) {
@@ -96,34 +83,4 @@ public class Box {
         return res;
     }
 
-    /**
-     * Return the animal's location.
-     * @return The animal's location.
-     */
-    public Location getLocation()
-    {
-        return location;
-    }
-
-    /**
-     * Place the animal at the new location in the given field.
-     * @param newLocation The animal's new location.
-     */
-    public void setLocation(Location newLocation)
-    {
-        if(location != null) {
-            field.clear(location);
-        }
-        location = newLocation;
-        field.place(this, newLocation);
-    }
-
-    /**
-     * Return the animal's field.
-     * @return The animal's field.
-     */
-    public Field getField()
-    {
-        return field;
-    }
 }

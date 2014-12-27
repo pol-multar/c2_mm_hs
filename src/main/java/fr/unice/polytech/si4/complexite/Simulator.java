@@ -21,7 +21,7 @@ public class Simulator {
     private List<Box> boxes;
 
     //List of ids in the field
-    private List<Integer> ids;
+    private List<Id> ids;
 
     // The current state of the field.
     private Field field;
@@ -107,10 +107,9 @@ public class Simulator {
 
         for(int row=0; row<b.getHeight();row++){
             for(int col=0;col<b.getWidth();col++){
-                //Location location=new Location(row,col);
-                //Box b1= new Box(b.getWidth(),b.getHeight(),field,location);
-                //boxesToV.add(b1);
-                this.ids.add(b.getId(row,col));
+                Location location=new Location(row,col);
+                Id i= new Id(b.getId(row,col),field,location);
+                this.ids.add(i);
             }
         }
     }
