@@ -18,7 +18,7 @@ public class BoxViewerMain {
         }catch(ArrayIndexOutOfBoundsException e){}
         l.add(b);
 
-        Simulator simu=new Simulator(l);
+        BoxViewer simu=new BoxViewer(l);
         System.out.println(b);
     }
 }

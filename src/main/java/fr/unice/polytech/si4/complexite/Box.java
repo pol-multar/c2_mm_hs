@@ -11,7 +11,7 @@ public class Box {
     private List<Integer> ids;
 
 
-    Box(int width, int height) {
+    public Box(int width, int height) {
         matrix = new int[width][height];
         ids = new ArrayList<Integer>();
     }

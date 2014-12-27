@@ -16,9 +16,13 @@ public class BoxView extends JFrame {
     public BoxView(Map<Integer, Color> colors, int depth, int width) {
         this.colors = colors;
 
-        setTitle("Rectangle Packing");
+        this.setTitle("Rectangle Packing");
 
-        setLocation(20, 50);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //this.setLocationRelativeTo(null);
+
+        this.setLocation(20, 50);
 
         fieldView = new FieldView(depth, width);
 
@@ -38,7 +42,7 @@ public class BoxView extends JFrame {
         Color col = colors.get(id);
         if (col == null) {
             // no color defined for this class
-            return Simulator.UNKNOWN_COLOR;
+            return BoxViewer.UNKNOWN_COLOR;
         } else {
             return col;
         }
@@ -56,7 +60,7 @@ public class BoxView extends JFrame {
                 if (id != null) {
                     fieldView.drawMark(col, row, getColor(id.getValue()));
                 } else {
-                    fieldView.drawMark(col, row, Simulator.EMPTY_COLOR);
+                    fieldView.drawMark(col, row, BoxViewer.EMPTY_COLOR);
                 }
             }
         }

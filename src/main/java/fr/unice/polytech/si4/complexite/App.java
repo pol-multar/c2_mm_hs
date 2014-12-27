@@ -30,6 +30,6 @@ public class App
         for(Box b : boxList){
             System.out.println(b);
         }
-        Simulator s=new Simulator(boxList);
+        BoxViewer s=new BoxViewer(boxList);
     }
 }

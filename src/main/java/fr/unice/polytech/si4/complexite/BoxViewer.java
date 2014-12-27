@@ -10,7 +10,7 @@ import java.util.Map;
  * @author mmultari
  * @version 19/12/14.
  */
-public class Simulator {
+public class BoxViewer {
     // Constants representing configuration information for the simulation.
     // The default width for the grid.
     private static final int DEFAULT_WIDTH = 120;
@@ -26,6 +26,7 @@ public class Simulator {
     // The current state of the field.
     private Field field;
 
+    //The box view
     private BoxView view;
 
     //Color used for empty locations.
@@ -40,13 +41,13 @@ public class Simulator {
     //The color - id associations
     private Map<Integer, Color> colors;
 
-    public Simulator(List<Box> l) {
+    public BoxViewer(List<Box> l) {
 
         this(l, DEFAULT_DEPTH, DEFAULT_WIDTH);
 
     }
 
-    public Simulator(List<Box> l, int depth, int width) {
+    public BoxViewer(List<Box> l, int depth, int width) {
         if (width <= 0 || depth <= 0) {
             System.out.println("The dimensions must be greater than zero.");
             System.out.println("Using default values.");
