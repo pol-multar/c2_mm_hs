@@ -23,7 +23,7 @@ public class App
         BoxEngine be = new BoxEngine(box, rectangleList);
         List<Box> boxList = null;
         try {
-            boxList = be.fastProcess();
+            boxList = be.firstFitDecreasingHeightProcess();
         } catch (Exception e) {
             e.printStackTrace();
         }

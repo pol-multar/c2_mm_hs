@@ -1,6 +1,8 @@
 package fr.unice.polytech.si4.complexite;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -20,12 +22,11 @@ public class BoxEngine {
      * @return the list of the boxes
      * @throws Exception if it can't be resolved
      */
-    List<Box> fastProcess() throws Exception {
-        for (Rectangle r : rectangleList) {
-            if (r.getWidth() > box.getWidth() || r.getHeight() > box.getHeight()){
-                throw new Exception("Some rectangles may be large or higher than the box !");
-            }
-        }
+    List<Box> firstFitDecreasingHeightProcess() throws Exception{
+        checkRectanglesSizes();
+
+        sortByWidth();
+
         List<Box> boxList = new ArrayList<Box>();
         Box b;
         while(!rectangleList.isEmpty()) {
@@ -43,5 +44,30 @@ public class BoxEngine {
             boxList.add(b);
         }
         return boxList;
+    }
+
+    private void checkRectanglesSizes() throws Exception {
+        for (Rectangle r : rectangleList) {
+            if (r.getWidth() > box.getWidth() || r.getHeight() > box.getHeight()){
+                throw new Exception("Some rectangles may be larger or higher than the box !");
+            }
+        }
+    }
+
+    private void sortByWidth(){
+        Collections.sort(rectangleList, new FirstFitDecreasingHeightComparator());
+    }
+
+    class FirstFitDecreasingHeightComparator implements Comparator<Rectangle> {
+        @Override
+        public int compare(Rectangle a, Rectangle b) {
+            if(a.getHeight()>b.getHeight() || (a.getHeight() == b.getHeight() && a.getWidth()>b.getWidth())) {
+                return -1;
+            }
+            if(a.getHeight()==b.getHeight() && a.getWidth() == b.getWidth()){
+                return 0;
+            }
+            return 1;
+        }
     }
 }
