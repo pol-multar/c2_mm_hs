@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Reads the given file
+ * Reads the given file to get information about boxes and rectangles
  */
 public class BoxReader {
     private static final String SEPARATOR1 = ",";
@@ -17,6 +17,10 @@ public class BoxReader {
     private Box box = null;
     private List<Rectangle> rectangleList = null;
 
+    /**
+     * The constructor of the class. It reads the file and creates box and rectangles
+     * @param filePath
+     */
     BoxReader(String filePath){
         BufferedReader in = null;
         rectangleList = new ArrayList<Rectangle>();
@@ -46,10 +50,18 @@ public class BoxReader {
         }
     }
 
+    /**
+     * Accessor of the box
+     * @return the box created
+     */
     public Box getBox(){
         return box;
     }
 
+    /**
+     * Accessor of the rectangles
+     * @return the rectangles created
+     */
     public List<Rectangle> getRectangleList(){
         return rectangleList;
     }
