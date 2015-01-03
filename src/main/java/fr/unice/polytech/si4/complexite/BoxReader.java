@@ -19,9 +19,10 @@ public class BoxReader {
 
     /**
      * The constructor of the class. It reads the file and creates box and rectangles
+     *
      * @param filePath
      */
-    BoxReader(String filePath){
+    BoxReader(String filePath) {
         BufferedReader in = null;
         rectangleList = new ArrayList<Rectangle>();
         try {
@@ -32,14 +33,14 @@ public class BoxReader {
         String line;
         try {
             String[] split = null;
-            if((line = in.readLine()) != null){
+            if ((line = in.readLine()) != null) {
                 split = line.split(SEPARATOR2);
                 box = new Box(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
             }
-            if((line = in.readLine()) != null){
+            if ((line = in.readLine()) != null) {
                 split = line.split(SEPARATOR1);
                 String[] split2 = null;
-                for(int i=0; i<split.length; i++){
+                for (int i = 0; i < split.length; i++) {
                     split2 = split[i].split(SEPARATOR2);
                     rectangleList.add(new Rectangle(Integer.parseInt(split2[0]), Integer.parseInt(split2[1])));
                 }
@@ -52,17 +53,19 @@ public class BoxReader {
 
     /**
      * Accessor of the box
+     *
      * @return the box created
      */
-    public Box getBox(){
+    public Box getBox() {
         return box;
     }
 
     /**
      * Accessor of the rectangles
+     *
      * @return the rectangles created
      */
-    public List<Rectangle> getRectangleList(){
+    public List<Rectangle> getRectangleList() {
         return rectangleList;
     }
 }

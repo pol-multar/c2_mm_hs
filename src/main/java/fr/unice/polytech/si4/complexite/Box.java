@@ -12,7 +12,8 @@ public class Box {
 
     /**
      * The Box constructor
-     * @param width width of the box
+     *
+     * @param width  width of the box
      * @param height height of the box
      */
     public Box(int width, int height) {
@@ -22,6 +23,7 @@ public class Box {
 
     /**
      * Decide if a rectangle r can be place in the box
+     *
      * @param r the rectangle to place
      * @param x the row to test
      * @param y the column to test
@@ -42,6 +44,7 @@ public class Box {
 
     /**
      * Put the rectangle given in the box
+     *
      * @param r the rectangle to place
      * @param x the row
      * @param y the colomn
@@ -49,7 +52,7 @@ public class Box {
      */
 
     public boolean putRectangle(Rectangle r, int x, int y) {
-        if(!canPutRectangle(r, x, y))return false;
+        if (!canPutRectangle(r, x, y)) return false;
         ids.add(r.getId());
         for (int i = x; i < x + r.getWidth(); i++) {
             for (int j = y; j < y + r.getHeight(); j++) {
@@ -61,6 +64,7 @@ public class Box {
 
     /**
      * Return the id place at (x,y) in the box
+     *
      * @param x the row
      * @param y the colomn
      * @return an id
@@ -68,13 +72,14 @@ public class Box {
     public int getId(int x, int y) {
         try {
             return matrix[x][y];
-        }catch (Exception e){
+        } catch (Exception e) {
             return -1;
         }
     }
 
     /**
      * Return of the ids contained in the box
+     *
      * @return a list of id
      */
     public List<Integer> getIds() {
@@ -83,6 +88,7 @@ public class Box {
 
     /**
      * Return the width of the box
+     *
      * @return an int that represent the width of the box
      */
     public int getWidth() {
@@ -91,6 +97,7 @@ public class Box {
 
     /**
      * Return the height of the box
+     *
      * @return an int that represent the height of the box
      */
     public int getHeight() {
@@ -100,6 +107,7 @@ public class Box {
 
     /**
      * A simple ihm of the box in String
+     *
      * @return a String of the box to display in shell
      */
     public String toString() {

@@ -18,6 +18,7 @@ public abstract class IdColorManager {
 
     /**
      * Return the color associate to an id
+     *
      * @param id the id of a rectangle
      * @return the color associated with the id
      */
