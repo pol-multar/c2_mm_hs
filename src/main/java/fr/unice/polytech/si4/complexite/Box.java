@@ -83,15 +83,15 @@ public class Box {
 
     /**
      * Return the width of the box
-     * @return
+     * @return an int that represent the width of the box
      */
     public int getWidth() {
         return matrix.length;
     }
 
     /**
-     * return the height of the box
-     * @return
+     * Return the height of the box
+     * @return an int that represent the height of the box
      */
     public int getHeight() {
         if (getWidth() == 0) return 0;
