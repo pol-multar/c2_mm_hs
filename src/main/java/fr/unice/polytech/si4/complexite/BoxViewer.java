@@ -13,9 +13,9 @@ import java.util.Map;
 public class BoxViewer {
     // Constants representing configuration information for the simulation.
     // The default width for the grid.
-    private static final int DEFAULT_WIDTH = 120;
+    private static final int DEFAULT_WIDTH = 400;
     // The default depth of the grid.
-    private static final int DEFAULT_DEPTH = 80;
+    private static final int DEFAULT_DEPTH = 500;
 
     // The list of box created.
     private List<Box> boxes;
@@ -26,8 +26,8 @@ public class BoxViewer {
     // The current state of the field.
     private Field field;
 
-    //The box view
-    private BoxView view;
+    //The Frame containing boxes
+    private BoxWindow window;
 
     //Color used for empty locations.
     public static final Color EMPTY_COLOR = Color.white;
@@ -64,25 +64,29 @@ public class BoxViewer {
         initColors();
 
         //Je crée ma vue
-        view = new BoxView(colors,depth,width);
+        //window = new BoxView(colors,depth,width);
+        window = new BoxWindow(l,colors,depth,width);
+
+
 
         //Je l'affiche
-        launchView();
+        //launchView();
+        window.displayWindow();
         
     }
 
-    private void launchView() {
+   /* private void launchView() {
         populate();
         updateViews();
 
     }
 
-    /**
+    *//**
      * Update all existing views.
-     */
+     *//*
     private void updateViews() {
-        view.showStatus(field);
-    }
+        window.showStatus(field);
+    }*/
 
 
 

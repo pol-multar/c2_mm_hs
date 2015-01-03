@@ -16,6 +16,7 @@ public class BoxViewerMain {
         try {
             b.putRectangle(r1, 1, 2);
         }catch(ArrayIndexOutOfBoundsException e){}
+
         l.add(b);
 
         BoxViewer simu=new BoxViewer(l);

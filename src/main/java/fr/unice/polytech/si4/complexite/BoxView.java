@@ -75,7 +75,7 @@ public class BoxView extends JFrame {
      * advanced GUI stuff - you can ignore this for your project if you like.
      */
     private class FieldView extends JPanel {
-        private final int GRID_VIEW_SCALING_FACTOR = 6;
+        private final int GRID_VIEW_SCALING_FACTOR = 50;
 
         private int gridWidth, gridHeight;
         private int xScale, yScale;
