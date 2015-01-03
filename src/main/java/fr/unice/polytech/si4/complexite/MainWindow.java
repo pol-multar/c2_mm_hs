@@ -7,8 +7,8 @@ import java.util.List;
 /**
  * Created by Hugo on 03/01/2015.
  */
-public class HugoBoxView extends JFrame {
-    public HugoBoxView(List<Box> l, double time) {
+public class MainWindow extends JFrame {
+    public MainWindow(List<Box> l, double time) {
         JPanel infoPane = new JPanel(new GridLayout(2,1));
         infoPane.add(new JLabel("Nombre de boxes : "+l.size()));
         infoPane.add(new JLabel("Nombre de secondes : "+time));
@@ -18,7 +18,7 @@ public class HugoBoxView extends JFrame {
         add(scrollPane);
 
         for(Box b : l){
-            boxesPane.add(new HugoBoxPanel(b));
+            boxesPane.add(new BoxPanel(b));
         }
 
         setLocationRelativeTo(null);

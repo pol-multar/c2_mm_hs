@@ -1,4 +1,4 @@
-package fr.unice.polytech.si4.complexite.testihm;
+package fr.unice.polytech.si4.complexite;
 
 /**
  * Created by Hugo on 03/01/2015.

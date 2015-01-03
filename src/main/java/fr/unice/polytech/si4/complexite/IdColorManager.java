@@ -8,7 +8,7 @@ import java.util.Random;
 /**
  * Created by Hugo on 03/01/2015.
  */
-public abstract class HugoColorManager {
+public abstract class IdColorManager {
     private static Map<Integer, Color> colorsById = new HashMap<Integer, Color>();
 
     public static Color getColor(int id) {
