@@ -2,6 +2,7 @@ package fr.unice.polytech.si4.complexite;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -39,9 +40,12 @@ public class BoxWindow extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //La location X=0,Y=0 commence en haut a gauche
         this.setLocationRelativeTo(null);
-        //TODO the next class
-        //this.setContentPane(new Panneau(new Box(3, 3)));
-        //contents.add(fieldView, BorderLayout.CENTER);
+        /*contents.add(new OneBoxView(new Box(3, 3)), BorderLayout.CENTER);
+        contents.add(new OneBoxView(new Box(4, 4)), BorderLayout.CENTER);*/
+        List<OneBoxView> l = new ArrayList<>();
+        l.add(new OneBoxView(new Box(3, 3)));
+        l.add(new OneBoxView(new Box(4, 4)));
+        contents.add(new MultipleBoxView(l));
         this.setVisible(true);
     }
 
