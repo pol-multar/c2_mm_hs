@@ -46,6 +46,10 @@ public class BoxEngine {
         return boxList;
     }
 
+    /**
+     * Test if a rectangle have the right size
+     * @throws Exception
+     */
     private void checkRectanglesSizes() throws Exception {
         for (Rectangle r : rectangleList) {
             if (r.getWidth() > box.getWidth() || r.getHeight() > box.getHeight()){
@@ -54,10 +58,16 @@ public class BoxEngine {
         }
     }
 
+    /**
+     * A method to sort the rectangle with the First Fit Decreasing Height
+     */
     private void sortByWidth(){
         Collections.sort(rectangleList, new FirstFitDecreasingHeightComparator());
     }
 
+    /**
+     * The class used to sort the rectangles
+     */
     class FirstFitDecreasingHeightComparator implements Comparator<Rectangle> {
         @Override
         public int compare(Rectangle a, Rectangle b) {
