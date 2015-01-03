@@ -6,11 +6,22 @@ import java.util.Map;
 import java.util.Random;
 
 /**
- * Created by Hugo on 03/01/2015.
+ * @author Hugo
+ * @version 03/01/2015.
+ */
+
+/**
+ * The class used to generate a color for an id
  */
 public abstract class IdColorManager {
     private static Map<Integer, Color> colorsById = new HashMap<Integer, Color>();
 
+    /**
+     * Return the color associate to an id
+     *
+     * @param id the id of a rectangle
+     * @return the color associated with the id
+     */
     public static Color getColor(int id) {
         if (colorsById.containsKey(id)) {
             return colorsById.get(id);

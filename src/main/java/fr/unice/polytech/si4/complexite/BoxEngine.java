@@ -12,24 +12,25 @@ public class BoxEngine {
     private Box box;
     private List<Rectangle> rectangleList;
 
-    BoxEngine(Box b, List<Rectangle> rl){
+    BoxEngine(Box b, List<Rectangle> rl) {
         box = b;
         rectangleList = rl;
     }
 
     /**
      * A simple process
+     *
      * @return the list of the boxes
      * @throws Exception if it can't be resolved
      */
-    List<Box> firstFitDecreasingHeightProcess() throws Exception{
+    List<Box> firstFitDecreasingHeightProcess() throws Exception {
         checkRectanglesSizes();
 
         sortByWidth();
 
         List<Box> boxList = new ArrayList<Box>();
         Box b;
-        while(!rectangleList.isEmpty()) {
+        while (!rectangleList.isEmpty()) {
             b = new Box(box.getWidth(), box.getHeight());
             for (int i = 0; i < b.getHeight(); i++) {
                 for (int j = 0; j < b.getWidth(); j++) {
@@ -46,25 +47,36 @@ public class BoxEngine {
         return boxList;
     }
 
+    /**
+     * Test if a rectangle have the right size
+     *
+     * @throws Exception
+     */
     private void checkRectanglesSizes() throws Exception {
         for (Rectangle r : rectangleList) {
-            if (r.getWidth() > box.getWidth() || r.getHeight() > box.getHeight()){
+            if (r.getWidth() > box.getWidth() || r.getHeight() > box.getHeight()) {
                 throw new Exception("Some rectangles may be larger or higher than the box !");
             }
         }
     }
 
-    private void sortByWidth(){
+    /**
+     * A method to sort the rectangle with the First Fit Decreasing Height
+     */
+    private void sortByWidth() {
         Collections.sort(rectangleList, new FirstFitDecreasingHeightComparator());
     }
 
+    /**
+     * The class used to sort the rectangles
+     */
     class FirstFitDecreasingHeightComparator implements Comparator<Rectangle> {
         @Override
         public int compare(Rectangle a, Rectangle b) {
-            if(a.getHeight()>b.getHeight() || (a.getHeight() == b.getHeight() && a.getWidth()>b.getWidth())) {
+            if (a.getHeight() > b.getHeight() || (a.getHeight() == b.getHeight() && a.getWidth() > b.getWidth())) {
                 return -1;
             }
-            if(a.getHeight()==b.getHeight() && a.getWidth() == b.getWidth()){
+            if (a.getHeight() == b.getHeight() && a.getWidth() == b.getWidth()) {
                 return 0;
             }
             return 1;

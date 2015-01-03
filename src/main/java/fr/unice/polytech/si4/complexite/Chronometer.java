@@ -1,9 +1,15 @@
 package fr.unice.polytech.si4.complexite;
 
 /**
- * Created by Hugo on 03/01/2015.
+ * @author Hugo
+ * @version 03/01/2015.
+ */
+
+/**
+ * The abstract class used to calculate the time for the execution of our algorithm
  */
 public abstract class Chronometer {
+
     private static long begin, end;
 
     public static void start() {
