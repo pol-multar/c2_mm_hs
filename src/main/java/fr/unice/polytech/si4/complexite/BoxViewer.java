@@ -20,11 +20,6 @@ public class BoxViewer {
     // The list of box created.
     private List<Box> boxes;
 
-    //List of ids in the field
-    private List<Id> ids;
-
-    // The current state of the field.
-    private Field field;
 
     //The Frame containing boxes
     private BoxWindow window;
@@ -56,8 +51,6 @@ public class BoxViewer {
         }
 
         boxes = new ArrayList<>(l);
-        ids = new ArrayList<>();
-        field = new Field(depth, width);
         colors = new HashMap<>();
 
         //Je remplis la table d'assoc
@@ -75,19 +68,6 @@ public class BoxViewer {
         
     }
 
-   /* private void launchView() {
-        populate();
-        updateViews();
-
-    }
-
-    *//**
-     * Update all existing views.
-     *//*
-    private void updateViews() {
-        window.showStatus(field);
-    }*/
-
 
 
     private void initColors() {
@@ -104,18 +84,4 @@ public class BoxViewer {
 
     }
 
-    //TODO correct this
-    private void populate(){
-        field.clear();
-
-        Box b=boxes.get(0);
-
-        for(int row=0; row<b.getHeight();row++){
-            for(int col=0;col<b.getWidth();col++){
-                Location location=new Location(row,col);
-                Id i= new Id(b.getId(row,col),field,location);
-                this.ids.add(i);
-            }
-        }
-    }
 }
