@@ -30,9 +30,9 @@ public class App
             e.printStackTrace();
         }
         Chronometer.stop();
-        for(Box b : boxList){
+        /*for(Box b : boxList){
             System.out.println(b);
-        }
+        }*/
         new MainWindow(boxList, Chronometer.getSeconds());
     }
 }
