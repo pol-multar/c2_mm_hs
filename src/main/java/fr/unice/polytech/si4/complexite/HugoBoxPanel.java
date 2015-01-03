@@ -25,6 +25,10 @@ public class HugoBoxPanel extends JPanel {
     }
 
     public void setBorder(JPanel p, Box b, int x, int y){
-        p.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        int id = b.getId(x, y);
+        p.setBorder(BorderFactory.createMatteBorder(b.getId(x, y-1)!=id?1:0,
+                b.getId(x-1, y)!=id?1:0,
+                b.getId(x, y+1)!=id?1:0,
+                b.getId(x+1, y)!=id?1:0, Color.BLACK));
     }
 }

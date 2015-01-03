@@ -41,7 +41,11 @@ public class Box {
     }
 
     public int getId(int x, int y) {
-        return matrix[x][y];
+        try {
+            return matrix[x][y];
+        }catch (Exception e){
+            return -1;
+        }
     }
 
     public List<Integer> getIds() {
