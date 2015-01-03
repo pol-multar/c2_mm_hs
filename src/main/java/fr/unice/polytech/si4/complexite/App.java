@@ -1,4 +1,6 @@
 package fr.unice.polytech.si4.complexite;
+import fr.unice.polytech.si4.complexite.testihm.Chronometer;
+
 import javax.swing.*;
 import java.util.List;
 /**
@@ -22,14 +24,16 @@ public class App
         // Process
         BoxEngine be = new BoxEngine(box, rectangleList);
         List<Box> boxList = null;
+        Chronometer.start();
         try {
             boxList = be.firstFitDecreasingHeightProcess();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        Chronometer.stop();
         for(Box b : boxList){
             System.out.println(b);
         }
-        BoxViewer s=new BoxViewer(boxList);
+        new HugoBoxView(boxList, Chronometer.getSeconds());
     }
 }
