@@ -33,16 +33,16 @@ public class App {
             System.out.println(b);
         }*/
         SpinnerNumberModel model = new SpinnerNumberModel(30, //initial value
-                0, //min
+                1, //min
                 100, //max
                 1);//step
         JSpinner spinner = new JSpinner(model);
         final JComponent[] inputs = new JComponent[] {
-                new JLabel("Taille d'une unité (pixels)"),
+                new JLabel("Taille d'une unité (en pixels)"),
                 spinner
         };
         JOptionPane.showMessageDialog(null, inputs, "Choisir l'échelle", JOptionPane.PLAIN_MESSAGE);
-        BoxPanel.setSquareSize(Integer.parseInt(spinner.getValue().toString()));
+        BoxPanel.SQUARE_SIZE = Integer.parseInt(spinner.getValue().toString());
 
         new MainWindow(boxList, Chronometer.getSeconds());
     }

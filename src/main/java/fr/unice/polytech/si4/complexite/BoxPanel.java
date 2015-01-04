@@ -10,7 +10,7 @@ import java.awt.*;
  * @version 03/01/2015.
  */
 public class BoxPanel extends JPanel {
-    private static int squareSize = 30;
+    public static int SQUARE_SIZE = 30;
 
     /**
      * The constructor of a BoxPanel
@@ -29,7 +29,7 @@ public class BoxPanel extends JPanel {
                 add(squarePane);
             }
         }
-        setPreferredSize(new Dimension(squareSize * b.getWidth(), squareSize * b.getHeight()));
+        setPreferredSize(new Dimension(SQUARE_SIZE * b.getWidth(), SQUARE_SIZE * b.getHeight()));
     }
 
     /**
