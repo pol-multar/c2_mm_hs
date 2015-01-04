@@ -38,6 +38,7 @@ public class BoxEngine {
                     for (Rectangle r : rectangleList) {
                         if (!b.putRectangle(r, j, i)) continue;
                         rectangleList.remove(r);
+                        j=j+r.getWidth()-1;
                         break;
                     }
                 }

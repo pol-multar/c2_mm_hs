@@ -10,7 +10,7 @@ import java.awt.*;
  * @version 03/01/2015.
  */
 public class BoxPanel extends JPanel {
-    private final int squareSize = 30;
+    private static int squareSize = 30;
 
     /**
      * The constructor of a BoxPanel

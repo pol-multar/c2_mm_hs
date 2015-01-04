@@ -34,10 +34,12 @@ public class BoxReader {
         try {
             String[] split = null;
             if ((line = in.readLine()) != null) {
+                line = line.replaceAll("\\s+","");
                 split = line.split(SEPARATOR2);
                 box = new Box(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
             }
             if ((line = in.readLine()) != null) {
+                line = line.replaceAll("\\s+","");
                 split = line.split(SEPARATOR1);
                 String[] split2 = null;
                 for (int i = 0; i < split.length; i++) {

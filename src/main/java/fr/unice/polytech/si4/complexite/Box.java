@@ -30,6 +30,9 @@ public class Box {
      * @return true if it can be placed
      */
     private boolean canPutRectangle(Rectangle r, int x, int y) {
+        if(r.getHeight()+y > getHeight() || r.getWidth()+x > getWidth()){
+            return false;
+        }
         try {
             for (int i = x; i < x + r.getWidth(); i++) {
                 for (int j = y; j < y + r.getHeight(); j++) {
