@@ -32,6 +32,18 @@ public class App {
         /*for(Box b : boxList){
             System.out.println(b);
         }*/
+        SpinnerNumberModel model = new SpinnerNumberModel(30, //initial value
+                0, //min
+                100, //max
+                1);//step
+        JSpinner spinner = new JSpinner(model);
+        final JComponent[] inputs = new JComponent[] {
+                new JLabel("Taille d'une unité (pixels)"),
+                spinner
+        };
+        JOptionPane.showMessageDialog(null, inputs, "Choisir l'échelle", JOptionPane.PLAIN_MESSAGE);
+        BoxPanel.setSquareSize(Integer.parseInt(spinner.getValue().toString()));
+
         new MainWindow(boxList, Chronometer.getSeconds());
     }
 }
